@@ -1,0 +1,107 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 100%;
+
+    .banner {
+        width: 1266px;
+        height: 668px;
+        transform: scale(0);  /* L'image commence petite */
+        opacity: 0;           /* L'image est invisible au départ */
+        animation: expandImage 1.2s ease-out forwards; /* Animation pour se déployer */
+    }
+
+    @keyframes expandImage {
+        0% {
+            transform: scale(0); /* Commence au centre, très petit */
+            opacity: 0;           /* Commence invisible */
+        }
+        100% {
+            transform: scale(1);   /* Atteint sa taille finale */
+            opacity: 1;            /* Devient complètement visible */
+        }
+    }
+
+    .text {
+        text-align: center;
+        color: #ede7e0;
+        font-family: "Lusitana-Regular";
+        font-size: 60px;
+        position: absolute;  /* Permet de positionner le texte au centre de l'image */
+        top: 50%;           /* Positionne le texte en bas de l'image */
+        left: 50%;
+        text-align: center;  /* Centre le texte horizontalement */
+        width: 100%;         /* Assure que le texte occupe toute la largeur de l'image */
+        opacity: 0;          /* Le texte est invisible au départ */
+        transform: translate(-50%, -50%) translateY(20px); /* Le texte commence en bas (en dehors de la vue) */
+        animation: slideUp 0.8s ease-out 1.2s forwards; /* Animation pour faire glisser le texte */
+
+        .highlight {
+            position: relative;
+            display: inline-block; /* Taille exacte du texte */
+            padding: 6px 15px; /* Espace autour du texte pour la bordure */
+            border: 2px solid transparent; /* Bordure initialement invisible */
+            border-radius: 50px; /* Arrondi de la bordure */
+
+    
+            &::after {
+                content: ''; /* Pseudo-élément pour dessiner la bordure */
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%; /* Commence à 0 */
+                height: 100%;
+                border: 2px solid #ede7e0; /* Couleur de la bordure */
+                border-radius: inherit; /* Reprend l'arrondi du conteneur */
+                box-sizing: border-box; /* Inclut les bordures dans les dimensions */
+                z-index: -1; /* Place la bordure derrière le texte */
+                animation: drawBorder 1.5s ease-out 1.3s forwards; /* Animation de la bordure */
+            }
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translate(-50%, -50%) translateY(20px); /* Commence en bas */
+            opacity: 0;                  /* Invisible au début */
+        }
+        100% {
+            transform: translate(-50%, -50%) translateY(0);    /* Glisse vers le haut (position finale) */
+            opacity: 1;                  /* Deviens visible */
+        }
+    }
+
+    @keyframes drawBorder {
+        0% {
+            width: 0%; /* Bordure commence invisible */
+        }
+        100% {
+            width: 100%; /* La bordure englobe complètement l'élément */
+        }
+    }
+
+    .btn {
+        margin-top: 30px;
+        padding: 10px 25px;
+        background-color: #3d3220;
+        color: #f9f4ee;
+        font-family: "Lusitana-Regular";
+        font-size: 16px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #463924;
+            border: none;
+        }
+    }
+}

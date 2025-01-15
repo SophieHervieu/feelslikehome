@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    p {
+        font-size: 20px;
+        // font-family: "Kokoro-Regular";
+        color: #2b2317;
+    }
+}

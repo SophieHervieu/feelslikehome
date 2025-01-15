@@ -1,0 +1,111 @@
+.connexion {
+    width: 100%;
+    height: 74vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .leftSection {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 160px;
+        margin-right: 60px;
+
+        .titleSection {
+            display: flex;
+
+            .lineWrapper {
+                display: flex;
+                align-items: center;
+
+                .line {
+                    display: inline-block;
+                    width: 90px; /* Longueur de la ligne */
+                    height: 2px;  /* Épaisseur de la ligne */
+                    background-color: #2b2317; /* Couleur de la ligne */
+                    vertical-align: middle; /* Pour aligner la ligne au centre du titre */
+                    margin-right: 10px;
+                }
+            }
+
+            .titles {
+                display: flex;
+                flex-direction: column; /* Empile les titres verticalement */
+                justify-content: center; /* Aligne verticalement les titres */
+
+                h1 {
+                    margin: 0;
+                    font-family: "Lusitana-Regular";
+                    font-weight: lighter;
+                    font-size: 32px;
+                    color: #2b2317;
+                    padding-left: 20px;
+        
+                    .realign {
+                        margin-top: 0; /* Enlève tout espacement entre les titres */
+                        padding-left: 0; /* Pas de décalage horizontal */
+                    }
+                }
+            }
+        }
+
+        .registerForm {
+            display: flex;
+            flex-direction: column;
+
+            .register {
+                display: flex;
+                flex-direction: column;
+                font-size: 24px;
+                color: #2b2317;
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+                label {
+                    padding-bottom: 15px;
+                }
+
+                input {
+                    background-color: #ede7e0;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 8px;
+                    width: 750px;
+                }
+            }
+
+            .button {
+                background-color: #3d3220;
+                color: #f9f4ee;
+                font-size: 16px;
+                border: none;
+                padding: 5px 15px;
+                border-radius: 25px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+
+            .account {
+                padding-top: 10px;
+                color: #2b2317;
+                font-size: 16px;
+
+                .fgtPassword {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #665335;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    img {
+        width: 450px;
+        height: 600px;
+    }
+}
