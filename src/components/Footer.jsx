@@ -1,7 +1,9 @@
+import { Link } from "react-router"
+
 export function Footer() {
     return (
         <div className="footer">
-            <p>{`Conditions générales d'utilisation`}</p>
+            <Link to='/CGU'><p>{`Mentions légales et Conditions Générales d'Utilisation`}</p></Link>
             <p>©Feels Like Home</p>
         </div>
     )

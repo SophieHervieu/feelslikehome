@@ -11,7 +11,7 @@
         height: 668px;
         transform: scale(0);  /* L'image commence petite */
         opacity: 0;           /* L'image est invisible au départ */
-        animation: expandImage 1.2s ease-out forwards; /* Animation pour se déployer */
+        animation: expandImage 1.2s ease-out forwards; /* Animation pour se déployer (expandImage: nom donné à l'animation, 1.2 : durée de l'animation, ease-out: effet d'expansion, forwards: indique les valeurs qui doivent être appliquées avant et après l'exécution de l'animation)*/
     }
 
     @keyframes expandImage {
@@ -70,11 +70,11 @@
 
     @keyframes slideUp {
         0% {
-            transform: translate(-50%, -50%) translateY(20px); /* Commence en bas */
+            transform: translate(-50%, -50%) translateY(20px); /* Commence à gauche */
             opacity: 0;                  /* Invisible au début */
         }
         100% {
-            transform: translate(-50%, -50%) translateY(0);    /* Glisse vers le haut (position finale) */
+            transform: translate(-50%, -50%) translateY(0);    /* Glisse vers la droite (position finale) */
             opacity: 1;                  /* Deviens visible */
         }
     }

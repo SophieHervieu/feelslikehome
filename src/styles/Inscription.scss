@@ -1,4 +1,4 @@
-.contact {
+.subscribe {
     width: 100%;
     height: 74vh;
     display: flex;
@@ -8,7 +8,7 @@
     .leftSection {
         display: flex;
         flex-direction: column;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
         margin-right: 60px;
 
         .titleSection {
@@ -49,7 +49,7 @@
             }
         }
 
-        .contactForm {
+        .subscribeForm {
             display: flex;
             flex-direction: column;
 
@@ -67,7 +67,7 @@
 
                 input {
                     all: unset; /* Supprime tous les styles par défaut */
-                    background-color: #ede7e0;
+                    background-color: #ede7e0 !important;
                     color: #2b2317 !important;
                     font-size: 16px;
                     border: none;
@@ -103,18 +103,6 @@
                         color: #2b2317 !important;
                     }
                 }
-
-                .message {
-                    all: unset; /* Supprime tous les styles par défaut */
-                    background-color: #ede7e0;
-                    color: #2b2317 !important;
-                    font-size: 16px;
-                    border: none;
-                    border-radius: 20px;
-                    padding: 14px;
-                    width: 750px;
-                    height: 200px;
-                }
             }
 
             .button {
@@ -131,6 +119,27 @@
                 &:hover {
                     background-color: #463924;
                     border: none;
+                }
+            }
+
+            .account {
+                padding-top: 10px;
+                color: #2b2317;
+                font-size: 16px;
+
+                .fgtPassword {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #665335;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+                :visited {
+                    color: #2b2317;
                 }
             }
         }

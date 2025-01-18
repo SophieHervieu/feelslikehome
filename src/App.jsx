@@ -6,6 +6,10 @@ import { Forum } from "./pages/Forum"
 import { Apropos } from "./pages/Apropos"
 import { Contact } from "./pages/Contact"
 import { Connexion } from "./pages/Connexion"
+import { MdpOublie } from "./pages/MdpOublie"
+import { ReinitMdp } from "./pages/ReinitMdp"
+import { Inscription } from "./pages/Inscription"
+import { CGU } from "./pages/CGU"
 import { Footer } from './components/Footer'
 import './App.scss'
 
@@ -21,6 +25,10 @@ function App() {
         <Route path="/Apropos" element={<Apropos />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Connexion" element={<Connexion />} />
+        <Route path="/OubliMdp" element={<MdpOublie />} />
+        <Route path="/ReinitialisationMdp" element={<ReinitMdp />} />
+        <Route path="/Inscription" element={<Inscription />} />
+        <Route path="/CGU" element={<CGU />} />
       </Routes>
       <Footer />
     </div>

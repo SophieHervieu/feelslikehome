@@ -66,11 +66,42 @@
                 }
 
                 input {
-                    background-color: #ede7e0;
+                    all: unset; /* Supprime tous les styles par défaut */
+                    background-color: #ede7e0 !important;
+                    color: #2b2317 !important;
+                    font-size: 16px;
                     border: none;
                     border-radius: 20px;
-                    padding: 8px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    padding-left: 14px;
+                    padding-right: 8px;
                     width: 750px;
+
+                    &:focus,
+                    &:hover {
+                        background-color: #ede7e0 !important; /* Couleur identique */
+                        color: #2b2317 !important;           /* Couleur identique */
+                        outline: none;            /* Supprime le contour par défaut */
+                    }
+
+                    &:-webkit-autofill {
+                        background-color: #ede7e0 !important; /* Couleur de fond */
+                        color: #2b2317 !important;           /* Couleur du texte */
+                        -webkit-box-shadow: 0 0 0 30px #ede7e0 inset !important; /* Fixe le fond */
+                        -webkit-text-fill-color: #2b2317 !important; /* Couleur du texte rempli */
+                        border-radius: 20px;                /* Conserver le border-radius */
+                    }
+
+                    &:-moz-autofill {
+                        background-color: #ede7e0 !important;
+                        color: #2b2317 !important;
+                    }
+
+                    &:-ms-autofill {
+                        background-color: #ede7e0 !important;
+                        color: #2b2317 !important;
+                    }
                 }
             }
 
@@ -78,11 +109,17 @@
                 background-color: #3d3220;
                 color: #f9f4ee;
                 font-size: 16px;
+                font-family: "Lusitana-Regular";
                 border: none;
-                padding: 5px 15px;
+                padding: 10px 25px;
                 border-radius: 25px;
                 margin-top: 20px;
                 cursor: pointer;
+
+                &:hover {
+                    background-color: #463924;
+                    border: none;
+                }
             }
 
             .account {
@@ -99,6 +136,10 @@
                     color: #665335;
                     text-decoration: underline;
                     cursor: pointer;
+                }
+
+                :visited {
+                    color: #2b2317;
                 }
             }
         }

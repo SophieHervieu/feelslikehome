@@ -1,20 +1,20 @@
 import vase from '../assets/images/vase.jpg'
 import { Link } from "react-router-dom"
 
-export function Connexion() {
+export function Inscription() {
     return (
-        <div className="connexion">
+        <div className="subscribe">
             <div className='leftSection'>
                 <div className='titleSection'>
                     <div className='lineWrapper'>
                         <span className='line'></span>
                     </div>
                     <div className='titles'>
-                        <h1>CONNECTEZ-</h1>
+                        <h1>INSCRIVEZ-</h1>
                         <h1 className='realign'>VOUS !</h1>
                     </div>
                 </div>
-                <form action="" method="post" className="registerForm">
+                <form action="" method="post" className="subscribeForm">
                     <div className="register">
                         <label>Adresse e-mail</label>
                         <input type="email" name="email" id="email" required />
@@ -23,14 +23,15 @@ export function Connexion() {
                         <label>Mot de passe</label>
                         <input type="password" name="password" id="password" required />
                     </div>
+                    <div className="register">
+                        <label>Confirmez le mot de passe</label>
+                        <input type="password" name="password" id="password" required />
+                    </div>
                     <div className="btn">
-                        <input type="submit" value="SE CONNECTER" className='button'/>
+                        <input type="submit" value="S'INSCRIRE" className='button'/>
                     </div>
                     <div className='account'>
-                        <Link to="/OubliMdp">
-                            <p className='fgtPassword'>Mot de passe oublié ?</p>
-                        </Link>
-                        <p>{`Vous n'avez pas de compte ? `} <Link to="/Inscription"><span>Inscrivez-vous !</span></Link></p>
+                        <p>{`Vous avez déjà un compte ? `} <Link to="/Connexion"><span>Connectez-vous !</span></Link></p>
                     </div>
                 </form>
             </div>
