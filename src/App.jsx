@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar'
 import { Home } from './pages/Home'
 import { Articles } from './pages/Articles'
 import { Forum } from "./pages/Forum"
+import { NewForumPost } from "./pages/NewForumPost"
 import { Apropos } from "./pages/Apropos"
 import { Contact } from "./pages/Contact"
 import { Connexion } from "./pages/Connexion"
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Articles" element={<Articles />} />
         <Route path="/Forum" element={<Forum />} />
+        <Route path="/NewPost" element={<NewForumPost />} />
         <Route path="/Apropos" element={<Apropos />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Connexion" element={<Connexion />} />

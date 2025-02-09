@@ -4,6 +4,7 @@ import { TbFridge } from "react-icons/tb";
 import { IoBedOutline } from "react-icons/io5";
 import { PiBathtub } from "react-icons/pi";
 import { LiaToiletSolid } from "react-icons/lia";
+import { GiFlowerPot } from "react-icons/gi";
 
 export function ForumLateralMenu() {
     return (
@@ -31,6 +32,10 @@ export function ForumLateralMenu() {
             <div className="section">
                 <LiaToiletSolid className="icon"/>
                 TOILETTES
+            </div>
+            <div className="section">
+                <GiFlowerPot className="icon"/>
+                EXTÉRIEUR
             </div>
         </div>
     )
