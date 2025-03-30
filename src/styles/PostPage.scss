@@ -1,0 +1,51 @@
+.postPage {
+    width: 100%;
+    height: 105vh;
+    color: #2b2317;
+    display: flex;
+    flex-direction: column;
+
+    .forumBody {
+        height: 100%;
+        display: flex;
+
+        .forumHome {
+            display: flex;
+            flex-direction: column;
+            color: #2b2317;
+            padding: 25px;
+
+            .navigate {
+                display: flex;
+                align-items: center;
+
+                .previous {
+                    font-size: 25px;
+                    padding-right: 10px;
+                    color: #2b2317;
+                }
+
+                h1 {
+                    color: #2b2317;
+                    font-family: "Lusitana-Regular";
+                    font-weight: lighter;
+                    font-size: 24px;
+                    margin: 0;
+                }
+            }
+
+            .postLine {
+                display: block;
+                width: 95%;
+                height: 1px;
+                background-color: #ede7e0;
+                align-self: center;
+                margin-top: 20px;
+            }
+
+            .singleComment {
+                margin-top: 20px;
+            }
+        }
+    }
+}

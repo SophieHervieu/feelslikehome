@@ -9,6 +9,32 @@
         height: 329px;
     }
 
+    .favorite, .addedFavorite {
+        color: #2b2317;
+        font-size: 25px;
+        position: absolute;
+        right: 880px;
+        top: 285px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .favorite.hidden, .addedFavorite.hidden {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .favorite {
+        &.hidden {
+            opacity: 0;
+        }
+    }
+
+    .addedFavorite {
+        &.hidden {
+            opacity: 0;
+        }
+    }
+
     h1 {
         font-family: "Lusitana-Regular";
     }

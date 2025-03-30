@@ -1,0 +1,39 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 10px;
+
+    label {
+        font-size: 24px;
+        padding: 20px 0 20px 8px;
+    }
+
+    .message {
+        all: unset; /* Supprime tous les styles par défaut */
+        background-color: #ede7e0;
+        color: #2b2317 !important;
+        font-size: 16px;
+        border: none;
+        border-radius: 20px;
+        padding: 14px;
+        width: 750px;
+        height: 100px;
+    }
+
+    .button {
+        width: 135px;
+        background-color: #3d3220;
+        color: #f9f4ee;
+        font-size: 20px;
+        border: none;
+        padding: 6px 25px;
+        border-radius: 25px;
+        margin-top: 20px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #463924;
+            border: none;
+        }
+    }
+}

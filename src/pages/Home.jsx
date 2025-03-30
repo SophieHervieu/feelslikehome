@@ -1,5 +1,5 @@
-// import banner from '../assets/images/banner.png'
 import bannerFilter from '../assets/images/bannerFilter.png'
+import { Link } from "react-router-dom"
 
 export function Home() {
     return (
@@ -9,7 +9,9 @@ export function Home() {
                 <p>SUBLIMEZ VOTRE <span className='highlight'>INTÉRIEUR</span></p>
                 <p>{`POUR QU'IL VOUS RESSEMBLE`}</p>
             </div>
-            <button className='btn'>FAIRE LE QUIZZ</button>
+            <Link to={"/quizz"} className="addPost">
+                <button className='btn'>FAIRE LE QUIZZ</button>
+            </Link>
         </div>  
     )
 }

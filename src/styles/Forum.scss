@@ -22,51 +22,6 @@
                 margin: 0;
             }
 
-            .postTitle {
-                font-size: 20px;
-                padding-left: 10px;
-            }
-
-            .profile {
-                padding-left: 10px;
-                display: flex;
-                align-items: center;
-
-                img {
-                    width: 40px;
-                    height: 30px;
-                    border-radius: 100px;
-                    margin-right: 8px;
-                    cursor: pointer;
-                }
-
-                .pseudo {
-                    font-size: 13px;
-                    cursor: pointer;
-                }
-            }
-
-            .post {
-                padding-left: 10px;
-                font-size: 16px;
-            }
-
-            .reactions {
-                padding-left: 10px;
-                display: flex;
-                align-items: center;
-                font-size: 25px;
-
-                .nb {
-                    padding-left: 6px;
-                    font-size: 16px;
-
-                    p:first-child {
-                        padding-right: 16px;
-                    }
-                }
-            }
-
             .postLine {
                 display: block;
                 width: 95%;
