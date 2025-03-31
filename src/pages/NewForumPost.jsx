@@ -2,6 +2,7 @@ import { ForumHeader } from "../components/ForumHeader";
 import { ForumLateralMenu } from "../components/ForumLateralMenu";
 import { RxArrowLeft } from "react-icons/rx";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export function NewForumPost() {
     return (
@@ -11,7 +12,9 @@ export function NewForumPost() {
                 <ForumLateralMenu />
                 <div className="formBody">
                     <div className="navigate">
+                    <Link to={"/forum"} className="singlePost">
                         <RxArrowLeft className="previous"/>
+                    </Link>
                         <h1>{`RETOUR À L'ACCUEIL`}</h1>
                     </div>
                     <p className="postTitle">Créer un nouveau post</p>

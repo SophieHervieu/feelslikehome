@@ -14,6 +14,13 @@ import { Connexion } from "./pages/Connexion"
 import { MdpOublie } from "./pages/MdpOublie"
 import { ReinitMdp } from "./pages/ReinitMdp"
 import { Inscription } from "./pages/Inscription"
+import { ProfilePage } from "./pages/ProfilePage"
+import { DerniersPosts } from "./pages/DerniersPosts"
+import { ArticlesFavoris } from "./pages/ArticlesFavoris"
+import { Preferences } from "./pages/Preferences"
+import { Notifications } from "./pages/Notifications"
+import { EmailEtMdp } from "./pages/EmailEtMdp"
+import { DesacCompte } from "./pages/DesacCompte"
 import { CGU } from "./pages/CGU"
 import { Footer } from './components/Footer'
 import './App.scss'
@@ -38,6 +45,13 @@ function App() {
         <Route path="/oublimdp" element={<MdpOublie />} />
         <Route path="/reinitialisationmdp" element={<ReinitMdp />} />
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/derniersposts" element={<DerniersPosts />} />
+        <Route path="/favoris" element={<ArticlesFavoris />} />
+        <Route path="/preferences" element={<Preferences />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/emailetmdp" element={<EmailEtMdp />} />
+        <Route path="/desactivation" element={<DesacCompte />} />
         <Route path="/cgu" element={<CGU />} />
       </Routes>
       <Footer />

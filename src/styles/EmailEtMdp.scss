@@ -1,0 +1,248 @@
+.sectionBody {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    color: #2b2317;
+
+    .headerLine {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ede7e0;
+    }
+
+    .inputBody {
+        width: 1500px;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0 0 30px;
+
+        .titleSection {
+            display: flex;
+            padding: 0 0 15px 0;
+
+            .lineWrapper {
+                display: flex;
+                align-items: center;
+
+                .line {
+                    display: inline-block;
+                    width: 90px;
+                    height: 2px;
+                    background-color: #2b2317;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+            }
+
+            .titles {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h1 {
+                    margin: 0;
+                    font-family: "Lusitana-Regular";
+                    font-weight: lighter;
+                    font-size: 20px;
+                    color: #2b2317;
+                    padding-left: 20px;
+        
+                    .realign {
+                        margin-top: 0;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+
+        .emailGeneral {
+            margin: 40px 0 0 0;
+            display: flex;
+            align-items: center;
+            
+            .left {
+                display: flex;
+                flex-direction: column;
+                margin: 0 70px 0 0;
+
+                .emailTitle {
+                    font-size: 30px;
+                    margin: 0;
+                }
+
+                .emailBody {
+                    margin: 10px 0 0 0;
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .btn {
+
+                button {
+                    width: 110px;
+                    height: 31px;
+                    font-size: 16px;
+                    color: #f9f4ee;
+                    background-color: #2b2317;
+                    padding: 1px 10px;
+                    border: none;
+                    border-radius: 30px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: #3d3220;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .mdpGeneral {
+            margin: 40px 0 0 0;
+            display: flex;
+            align-items: center;
+            
+            .left {
+                display: flex;
+                flex-direction: column;
+                margin: 0 257px 0 0;
+
+                .emailTitle {
+                    font-size: 30px;
+                    margin: 0;
+                }
+
+                .emailBody {
+                    margin: 10px 0 0 0;
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .btn {
+
+                button {
+                    width: 110px;
+                    height: 31px;
+                    font-size: 16px;
+                    color: #f9f4ee;
+                    background-color: #2b2317;
+                    padding: 1px 10px;
+                    border: none;
+                    border-radius: 30px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: #3d3220;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .googleGeneral {
+            margin: 40px 0 0 0;
+            display: flex;
+            align-items: center;
+            
+            .left {
+                display: flex;
+                align-items: center;
+                margin: 0 320px 0 0;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    margin: 0 6px 0 0;
+                }
+
+                .emailTitle {
+                    font-size: 30px;
+                    margin: 0;
+                }
+
+                .emailBody {
+                    margin: 10px 0 0 0;
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .btn {
+
+                button {
+                    width: 110px;
+                    height: 31px;
+                    font-size: 16px;
+                    color: #f9f4ee;
+                    background-color: #2b2317;
+                    padding: 1px 10px;
+                    border: none;
+                    border-radius: 30px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: #3d3220;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .postLine {
+            display: block;
+            width: 95%;
+            height: 1px;
+            background-color: #ede7e0;
+            align-self: center;
+            margin-top: 50px;
+        }
+
+        .saveInfoBtns {
+            margin: 30px 0 0 0;
+            display: flex;
+
+            .cancel {
+                margin: 0 20px 0 0;
+                width: 90px;
+                height: 31px;
+                font-size: 16px;
+                color: #2b2317;
+                background-color: #f9f4ee;
+                border: 1px solid #2b2317;
+                padding: 1px 10px;
+                border-radius: 30px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #2b2317;
+                    color: #f9f4ee;
+                }
+            }
+
+            .save {
+                width: 110px;
+                height: 31px;
+                font-size: 16px;
+                color: #f9f4ee;
+                background-color: #2b231785;
+                padding: 1px 10px;
+                border: none;
+                border-radius: 30px;
+
+                // &:hover{
+                //     background-color: #3d3220;
+                //     border: none;
+                // }
+            }
+        }
+    }
+}

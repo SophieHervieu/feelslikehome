@@ -20,18 +20,18 @@
 
                 .line {
                     display: inline-block;
-                    width: 90px; /* Longueur de la ligne */
-                    height: 2px;  /* Épaisseur de la ligne */
-                    background-color: #2b2317; /* Couleur de la ligne */
-                    vertical-align: middle; /* Pour aligner la ligne au centre du titre */
+                    width: 90px;
+                    height: 2px;
+                    background-color: #2b2317;
+                    vertical-align: middle;
                     margin-right: 10px;
                 }
             }
 
             .titles {
                 display: flex;
-                flex-direction: column; /* Empile les titres verticalement */
-                justify-content: center; /* Aligne verticalement les titres */
+                flex-direction: column;
+                justify-content: center;
 
                 h1 {
                     margin: 0;
@@ -42,8 +42,8 @@
                     padding-left: 20px;
         
                     .realign {
-                        margin-top: 0; /* Enlève tout espacement entre les titres */
-                        padding-left: 0; /* Pas de décalage horizontal */
+                        margin-top: 0;
+                        padding-left: 0;
                     }
                 }
             }

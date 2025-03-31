@@ -1,0 +1,121 @@
+.profileHeader{
+    display: flex;
+    flex-direction: column;
+    color: #2b2317;
+    padding: 30px 60px;
+
+    .titleSection {
+        display: flex;
+
+        .lineWrapper {
+            display: flex;
+            align-items: center;
+
+            .line {
+                display: inline-block;
+                width: 90px;
+                height: 2px;
+                background-color: #2b2317;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        .titles {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                margin: 0;
+                font-family: "Lusitana-Regular";
+                font-weight: lighter;
+                font-size: 32px;
+                color: #2b2317;
+                padding-left: 20px;
+            }
+        }
+    }
+
+    .profileBody{
+        padding: 30px 60px 0 60px;
+        display: flex;
+        justify-content: space-between;
+
+        .profileDetails {
+            display: flex;
+            justify-content: center;
+
+            .picture{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 25px 0 0;
+
+                img{
+                    width: 152px;
+                    height: 152px;
+                    border-radius: 100px;
+                }
+
+                p{
+                    font-size: 16px;
+                    width: 200px;
+                    text-align: center;
+
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .profileInfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .username {
+                    margin: 0;
+                    font-size: 32px;
+                }
+
+                .userInfo {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .profileButtons {
+        display: flex;
+        align-items: center;
+
+        .instagram {
+            color: #2b2317;
+            font-size: 30px;
+            cursor: pointer;
+            margin: 0 20px 0 0;
+        }
+
+        .btn {
+            width: 150px;
+            height: 33px;
+            color: #f9f4ee;
+            background-color: #3d3220;
+            font-size: 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+    }
+
+    .postLine {
+        display: block;
+        width: 95%;
+        height: 1px;
+        background-color: #ede7e0;
+        align-self: center;
+        margin-top: 20px;
+    }
+}

@@ -10,7 +10,16 @@
 
     p {
         font-size: 20px;
-        // font-family: "Kokoro-Regular";
+        background-color: #f9f4ee;
         color: #2b2317;
+        padding: 12px 35px;
+        border-radius: 30px;
+
+        &:hover {
+            background-color: #2b2317;
+            color: #f9f4ee;
+            padding: 12px 35px;
+            border-radius: 30px;
+        }
     }
 }
