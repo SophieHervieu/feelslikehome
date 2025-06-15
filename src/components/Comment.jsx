@@ -12,9 +12,9 @@ export function Comment() {
             <p className="post">{`L’avantage du PVC, c’est que ça ne moisit pas, contrairement au parquet stratifié, au flottant (surtout pas dans une salle de bain, celui-là !) ou au vrai parquet bois.`}</p>
             <p className="post">{`Pour ce qui est de la qualité, je pense que ça vieillit moins bien que du carrelage effet bois dans le temps, vu que les dalles vont bouger, même en faisant attention. `}</p>
             <div className="reactions">
-                <FaRegComments />
+                <FaRegComments className="reactionIcon" />
                 <p className="nb">3</p>
-                <PiArrowFatUpBold />
+                <PiArrowFatUpBold className="reactionIcon" />
                 <p className="nb">10</p>
             </div>
             <div className="btn">

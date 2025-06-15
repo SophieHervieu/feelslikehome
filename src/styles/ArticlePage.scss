@@ -114,6 +114,7 @@
                 right: 785px;
                 top: 360px;
                 transition: opacity 0.3s ease, transform 0.3s ease;
+                cursor: pointer;
             }
     
             .favorite.hidden, .addedFavorite.hidden {
@@ -137,6 +138,19 @@
         .paragraphs{
             width: 1350px;
             font-size: 20px;
+        }
+
+        .postLine {
+            display: block;
+            width: 95%;
+            height: 1px;
+            background-color: #ede7e0;
+            align-self: center;
+            margin-top: 50px;
+        }
+
+        .commentSection {
+            margin: 20px 0 0 0;
         }
     }
 }

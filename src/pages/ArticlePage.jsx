@@ -4,6 +4,8 @@ import { IoSearchOutline, IoOptionsSharp } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { Filter } from '../components/Filter';
+import { CommentPost } from "../components/CommentPost";
+import { Comment } from "../components/Comment";
 
 export function ArticlePage() {
     const [isSearchActive, setIsSearchActive] = useState(false);
@@ -47,6 +49,12 @@ export function ArticlePage() {
                 <div className="paragraphs">
                     <p>Il semble de prime abord qu’il n’y ait pas de règle spécifique pour accrocher ses cadres. Pour autant, on ne peut pas s’empêcher de remarquer quand un cadre est trop bas, trop haut, ou disposée sur son mur de façon aléatoire, donnant l’impression qu’il est un peu perdu.</p>
                     <p>Dans cet article, vous allez découvrir comment faire en sorte que vos cadres soient accrochés de façon réfléchie, et en accord avec les meubles et autres éléments de décoration de votre intérieur. C’est parti !</p>
+                </div>
+                <span className="postLine"></span>
+                <CommentPost />
+                <span className="postLine"></span>
+                <div className="commentSection">
+                    <Comment />
                 </div>
             </div>
             {isFilterOpen && <div className="overlay" onClick={() => setIsFilterOpen(false)}></div>}

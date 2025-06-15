@@ -12,12 +12,34 @@
 
     .section {
         display: flex;
-        padding: 20px 0;
-        cursor: pointer;
+        align-items: center;
+        padding: 8px 0;
 
         .icon {
             font-size: 24px;
             padding-right: 15px;
+            cursor: pointer;
+        }
+
+        p {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 24px;
+                left: 0;
+                height: 2px;
+                width: 0;
+                background-color: #2b2317;
+                transition: width 0.4s ease;
+            }
+    
+            &:hover::after {
+                width: 100%;
+            }
         }
     }
 }

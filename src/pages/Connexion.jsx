@@ -23,11 +23,13 @@ export function Connexion() {
                         <label>Mot de passe</label>
                         <input type="password" name="password" id="password" required />
                     </div>
+                    <Link to="/connexion">
                     <div className="btn">
                         <input type="submit" value="SE CONNECTER" className='button'/>
                     </div>
+                    </Link>
                     <div className='account'>
-                        <Link to="/OubliMdp">
+                        <Link to="/oublimdp">
                             <p className='fgtPassword'>Mot de passe oublié ?</p>
                         </Link>
                         <p>{`Vous n'avez pas de compte ? `} <Link to="/Inscription"><span>Inscrivez-vous !</span></Link></p>

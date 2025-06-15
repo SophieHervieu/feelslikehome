@@ -11,31 +11,31 @@ export function ForumLateralMenu() {
         <div className="menu">
             <div className="section">
                 <RiSofaLine className="icon"/>
-                SALON
+                <p>SALON</p>
             </div>
             <div className="section">
                 <FaChair className="icon"/>
-                SALLE À MANGER
+                <p>SALLE À MANGER</p>
             </div>
             <div className="section">
                 <TbFridge className="icon"/>
-                CUISINE
+                <p>CUISINE</p>
             </div>
             <div className="section">
                 <IoBedOutline className="icon"/>
-                CHAMBRE
+                <p>CHAMBRE</p>
             </div>
             <div className="section">
                 <PiBathtub className="icon"/>
-                SALLE DE BAIN
+                <p>SALLE DE BAIN</p>
             </div>
             <div className="section">
                 <LiaToiletSolid className="icon"/>
-                TOILETTES
+                <p>TOILETTES</p>
             </div>
             <div className="section">
                 <GiFlowerPot className="icon"/>
-                EXTÉRIEUR
+                <p>EXTÉRIEUR</p>
             </div>
         </div>
     )

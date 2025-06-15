@@ -2,11 +2,11 @@ export function CommentPost() {
     return (
         <div className="commentPost">
             <div className="comment">
-                <label>Poster une réponse</label>
+                <label>Poster un commentaire</label>
                 <textarea type="text" name="text" id="text" className='message' required></textarea>
                 <input
                     type="submit"
-                    value="Répondre"
+                    value="Envoyer"
                     className="button"
                 />
             </div>

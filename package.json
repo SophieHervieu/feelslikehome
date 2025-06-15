@@ -2,8 +2,8 @@
   "name": "react",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
+    "start-backend": "node backend/index.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
