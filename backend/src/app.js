@@ -32,17 +32,10 @@ app.use(
     optionsSuccessStatus: 200,
   })
 )
-// app.use(
-//   cors({
-//     origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
-//     optionsSuccessStatus: 200,
-//   }) // on donne les droit a au front de ce connecter
-// )
-// import and mount the API routes
 
 const router = require('./router') // on importe notre routeur
 
-app.use(router) // on envois la requet dans le fichier router.js
+app.use('/api', router) // on envois la requet dans le fichier router.js
 
 // serve the `backend/public` folder for public resources
 

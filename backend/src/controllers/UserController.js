@@ -104,7 +104,7 @@ const browse = (req, res) => {
 //       if (!user) {
 //         return res.status(401).send({ message: 'Invalid credentials' })
 //       }
-//       const passwordMatch = await verifyPassword(user.pwd, req.body.password)
+//       const passwordMatch = await verifyPassword(user.password, req.body.password)
 //       if (!passwordMatch) {
 //         return res.status(401).send({ message: 'Invalid credentials' })
 //       }
@@ -159,12 +159,12 @@ const browse = (req, res) => {
   
   module.exports = {
     browse,
-    registerUser,
+    // registerUser,
     edit,
     read,
     destroy,
-    login,
-    logout,
+    // login,
+    // logout,
     changedEmail,
     changedPassword,
   }

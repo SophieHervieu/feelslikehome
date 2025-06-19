@@ -2,73 +2,66 @@ const AbstractManager = require('./AbstractManager')
 
 class UserManager extends AbstractManager {
   constructor() {
-    super({ table: 'users' })
+    super({ table: 'users' });
   }
 
-  insert(user) {
-    return this.database.query(
-      `insert into ${this.table} (username, email, password, profile_picture, quizz_result, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?)`,
-      [
-        user.username,
-        user.email,
-        user.password,
-        user.profile_picture,
-        user.quizz_result,
-        user.created_at,
-        user.updated_at,
-      ]
-    )
-  }
-
-  async addOne(user) {
+  async insert(user) {
     try {
       const [result] = await this.database.query(
-        `insert into ${this.table} (password, email) values (?, ?)`,
-        [user.password, user.email]
-      )
-      return { id: result.insertId, email: user.email }
-    } catch (erreur) {
-      console.error(erreur)
-      throw new Error("Erreur lors de l'insertion de l'utilisateur")
+        `INSERT INTO ${this.table} (username, email, password, profile_picture, quizz_result, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, NOW(), NOW())`,
+        [
+          user.username,
+          user.email,
+          user.password,
+          user.profile_picture,
+          user.quizz_result,
+        ]
+      );
+      return { id: result.insertId, email: user.email };
+    } catch (err) {
+      console.error(err);
+      throw new Error("Erreur lors de l'insertion de l'utilisateur");
     }
   }
 
   async findByEmail(email) {
-    try {
-      const [user] = await this.database.query(
-        `select * from ${this.table} where email = ?`,
-        [email]
-      )
-      return user
-    } catch (error) {
-      console.error(error)
-    }
+    const [user] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE email = ?`,
+      [email]
+    );
+    return user;
+  }
+
+  async findById(id) {
+    const [user] = await this.database.query(
+      `SELECT id, username, email, profile_picture, quizz_result FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
+    return user;
   }
 
   update(user) {
     return this.database.query(
-      `update ${this.table} set username= ?, profile_picture= ?, quizz_result= ? where id = ?`,
-      [
-        user.username,
-        user.profile_picture,
-        user.quizz_result,
-        user.id,
-      ]
-    )
+      `UPDATE ${this.table}
+       SET username = ?, email = ?, profile_picture = ?, quizz_result = ?
+       WHERE id = ?`,
+      [user.username, user.email, user.profile_picture, user.quizz_result, user.id]
+    );
   }
 
   changePassword(user) {
     return this.database.query(
-      `update ${this.table} set password = ? where id = ?`,
+      `UPDATE ${this.table} SET password = ? WHERE id = ?`,
       [user.password, user.id]
-    )
+    );
   }
 
   changeEmail(user) {
     return this.database.query(
-      `update ${this.table} set email = ? where id = ?`,
+      `UPDATE ${this.table} SET email = ? WHERE id = ?`,
       [user.email, user.id]
-    )
+    );
   }
 }
 

@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users(
 	id_users INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(50) NOT NULL UNIQUE,
-    `password` VARCHAR(100) NOT NULL UNIQUE,
+    `password` VARCHAR(100) NOT NULL,
     profile_picture VARCHAR(200),
     quizz_result TEXT,
     created_at DATETIME NOT NULL,
@@ -19,15 +19,15 @@ CREATE TABLE IF NOT EXISTS article(
     content TEXT,
     image VARCHAR(200),
     affiliate_links TEXT,
-    created_at DATETIME NOT NULL,
-    updated_at DATETIME,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     id_users INT NOT NULL
 )ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS forum_thread(
 	id_forum_thread INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     title VARCHAR(50) NOT NULL,
-    created_at DATETIME NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     id_users INT NOT NULL
 )ENGINE=innoDB;
 
@@ -35,20 +35,28 @@ CREATE TABLE IF NOT EXISTS forum_post(
 	id_forum_post INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     title VARCHAR(50) NOT NULL,
     content TEXT NOT NULL,
-    created_at DATETIME NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     id_forum_thread INT NOT NULL,
     id_users INT NOT NULL
 )ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS user_favorite(
 	id_user_favorite INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    created_at DATETIME NOT NULL
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name VARCHAR(50) NOT NULL
 )ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS quizz_question(
 	id_quizz_question INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    question_text VARCHAR(100)
+    question_text VARCHAR(100) NOT NULL
 )ENGINE=innoDB;
+
+CREATE TABLE IF NOT EXISTS quizz_answer_choice (
+    id_quizz_answer_choice INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    id_quizz_question INT NOT NULL,
+    id_quizz_result INT NOT NULL
+) ENGINE=innoDB;
 
 CREATE TABLE IF NOT EXISTS quizz_result(
 	id_quizz_result INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -58,7 +66,7 @@ CREATE TABLE IF NOT EXISTS quizz_result(
 
 CREATE TABLE IF NOT EXISTS theme(
 	id_theme INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(50)
+    name VARCHAR(50) NOT NULL
 )ENGINE=innoDB;
 
 -- Tables d'association
@@ -152,6 +160,18 @@ ALTER TABLE answer
 ADD CONSTRAINT fk_answer_question
 FOREIGN KEY (id_quizz_question)
 REFERENCES quizz_question(id_quizz_question);
+
+ALTER TABLE quizz_answer_choice
+ADD CONSTRAINT fk_quizz_question_choice
+FOREIGN KEY (id_quizz_question)
+REFERENCES quizz_question(id_quizz_question)
+ON DELETE CASCADE;
+
+ALTER TABLE quizz_answer_choice
+ADD CONSTRAINT fk_quizz_result_choice
+FOREIGN KEY (id_quizz_result)
+REFERENCES quizz_result(id_quizz_result)
+ON DELETE CASCADE;
 
 ALTER TABLE display
 ADD CONSTRAINT fk_quizz_question_display

@@ -1,26 +1,17 @@
-import { useState } from "react";
-import frame from '../assets/images/frame.jpg'
 import { BsArrowRight } from "react-icons/bs";
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom"
 
-export function Article() {
-    const [isFavorite, setIsFavorite] = useState(false);
+export function Article({ article }) {
 
-    const handleFavoriteClick = () => {
-        setIsFavorite(!isFavorite);
-    };
+    const [firstPart, secondPart] = article.title.split('||');
     
     return (
         <div className="singleArticle">
-            <img src={frame} alt="Photo d'un cadre représentant un voilier accroché sur un mur au dessus du buffet en bois"/>
-            <FaRegHeart className={`favorite ${isFavorite ? 'hidden' : ''}`} 
-                onClick={handleFavoriteClick} />
-            <FaHeart className={`addedFavorite ${isFavorite ? '' : 'hidden'}`} 
-                onClick={handleFavoriteClick} />
-            <h1>DISPOSER UN <br/>CADRE SUR UN MUR</h1>
-            <Link to={"/article"} className="addPost">
+            <Link to={`/article/${article.id_article}`} className="addPost">
+                <img src={article.image} alt={`Image de l'article : ${article.title}`}/>
+            </Link>
+            <h1>{firstPart} <br/>{secondPart}</h1>
+            <Link to={`/article/${article.id_article}`} className="addPost">
                 <button>
                     Découvrir
                     <BsArrowRight className="direction"/>

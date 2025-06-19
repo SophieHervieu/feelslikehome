@@ -1,5 +1,5 @@
 .articles {
-    width: 100%;
+    width: auto;
     height: 74vh;
     display: flex;
     flex-direction: column;
@@ -7,59 +7,88 @@
 
     .navigation {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         font-size: 25px;
         position: relative;
 
-        .search-bar {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            right: 100px;
-            width: 0;
-            overflow: hidden;
-            visibility: hidden;
-            opacity: 0;
-            transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0.3s;
+        .addArticle {
 
-            input {
-                all: unset;
-                background-color: #ede7e0;
-                color: #2b2317 !important;
-                font-size: 16px;
+            button {
+                background-color: #2b2317;
+                color: #f9f4ee;
+                font-family: "Lusitana-Regular";
+                font-size: 24px;
                 border: none;
-                border-radius: 20px;
-                width: 100%;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                padding-left: 15px;
-                padding-right: 5px;
-                box-sizing: border-box;
-            }
+                border-radius: 35px;
+                padding: 10px 20px;
+                margin: 0 0 0 50px;
+                cursor: pointer;
 
-            &.active {
-                width: 400px;
-                visibility: visible;
-                opacity: 1;
-                transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0s;
+                &:hover {
+                    background-color: #3d3220;
+                }
             }
         }
 
-        .search {
-            cursor: pointer;
-            z-index: 10;
+        .navIcons {
+
+            .search-bar {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                right: 100px;
+                width: 0;
+                overflow: hidden;
+                visibility: hidden;
+                opacity: 0;
+                transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0.3s;
+    
+                input {
+                    all: unset;
+                    background-color: #ede7e0;
+                    color: #2b2317 !important;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 20px;
+                    width: 100%;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    padding-left: 15px;
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                }
+    
+                &.active {
+                    width: 400px;
+                    visibility: visible;
+                    opacity: 1;
+                    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0s;
+                }
+            }
+    
+            .search {
+                cursor: pointer;
+                z-index: 10;
+            }
+    
+            .sort {
+                padding: 0 20px;
+                cursor: pointer;
+            }
         }
 
-        .sort {
-            padding: 0 20px;
-            cursor: pointer;
-        }
+        
     }
 
     .articlesList {
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
         margin-top: 100px;
+
+        .no-results {
+            font-size: 24px;
+        }
     }
 }

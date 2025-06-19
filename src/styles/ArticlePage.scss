@@ -88,6 +88,7 @@
                     font-size: 32px;
                     color: #2b2317;
                     padding-left: 20px;
+                    text-transform: uppercase;
         
                     .realign {
                         margin-top: 0; /* Enlève tout espacement entre les titres */
@@ -101,6 +102,7 @@
             display: flex;
             justify-content: center;
             margin: 50px 0;
+            position: relative;
 
             img {
                 width: 350px;
@@ -108,11 +110,11 @@
             }
             
             .favorite, .addedFavorite {
-                color: #2b2317;
+                color: #d33232;
                 font-size: 30px;
                 position: absolute;
-                right: 785px;
-                top: 360px;
+                right: 540px;
+                top: 20px;
                 transition: opacity 0.3s ease, transform 0.3s ease;
                 cursor: pointer;
             }

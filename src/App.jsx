@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar'
 import { Home } from './pages/Home'
 import { Articles } from './pages/Articles'
 import { ArticlePage } from "./pages/ArticlePage"
+import { NewArticle } from "./pages/NewArticle"
 import { Forum } from "./pages/Forum"
 import { PostPage } from "./pages/PostPage"
 import { NewForumPost } from "./pages/NewForumPost"
@@ -33,7 +34,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />
-        <Route path="/article" element={<ArticlePage />} />
+        <Route path="/article/:id" element={<ArticlePage />} />
+        <Route path="/nouvelarticle" element={<NewArticle />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/quizz" element={<Quizz />} />

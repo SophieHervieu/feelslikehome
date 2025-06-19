@@ -14,7 +14,7 @@
         font-size: 25px;
         position: absolute;
         right: 880px;
-        top: 285px;
+        top: 315px;
         transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -30,6 +30,7 @@
     }
 
     .addedFavorite {
+        cursor: pointer;
         &.hidden {
             opacity: 0;
         }
@@ -37,6 +38,7 @@
 
     h1 {
         font-family: "Lusitana-Regular";
+        text-transform: uppercase;
     }
 
     button {
@@ -53,6 +55,11 @@
         width: 177px;
         padding: 8px 20px;
         cursor: pointer;
+
+        &:hover {
+            background-color: #3d3220;
+            color: #f9f4ee;
+        }
 
         .direction {
             padding-top: 3px;
