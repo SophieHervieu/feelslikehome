@@ -27,12 +27,18 @@ const read = (req, res) => {
 };
 
 const add = (req, res) => {
-    const article = req.body;
+    const article = {
+      title: req.body.title,
+      content: req.body.content,
+      id_users: parseInt(req.body.id_users, 10),
+      image: req.file ? req.file.filename : null,
+      affiliate_links: req.body.affiliate_links || null,
+    };
   
     models.article
       .addArticle(article)
-      .then(([result]) => {
-        res.status(201).json({ id: result.insertId, ...article });
+      .then((result) => {
+        res.status(201).json({ id_article: result.insertId, ...article });
       })
       .catch((err) => {
         console.error(err);
@@ -41,8 +47,19 @@ const add = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const article = req.body;
-  article.id = parseInt(req.params.id, 10);
+  const id = parseInt(req.params.id, 10);
+
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'ID invalide' });
+  }
+
+  const article = {
+    id_article: id,
+    title: req.body.title,
+    content: req.body.content,
+    id_users: parseInt(req.body.id_users, 10),
+    image: req.file ? req.file.filename : req.body.existingImage || null,
+  };
 
   models.article
     .updateArticle(article)
@@ -51,7 +68,7 @@ const edit = (req, res) => {
       else res.sendStatus(204);
     })
     .catch((err) => {
-      console.error(err);
+      console.error('Erreur lors de la modification de l’article :', err);
       res.sendStatus(500);
     });
 };

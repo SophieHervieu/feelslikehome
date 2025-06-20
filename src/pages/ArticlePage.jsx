@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import frame from '../assets/images/frame.jpg'
 import { IoSearchOutline, IoOptionsSharp } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -7,7 +6,7 @@ import { Filter } from '../components/Filter';
 import { CommentPost } from "../components/CommentPost";
 import { Comment } from "../components/Comment";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 export function ArticlePage() {
     const { id } = useParams();
@@ -17,6 +16,7 @@ export function ArticlePage() {
     const [isSearchActive, setIsSearchActive] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios
@@ -38,6 +38,20 @@ export function ArticlePage() {
 
     const handleFavoriteClick = () => {
         setIsFavorite(!isFavorite);
+    };
+
+    const onDelete = (id) => {
+        if (window.confirm("Voulez-vous vraiment supprimer cet article ?")) {
+            axios
+              .delete(`http://localhost:3000/api/article/${id}`)
+              .then(() => {
+                navigate("/Articles");
+              })
+              .catch((error) => {
+                console.error("Erreur lors de la suppression :", error);
+                alert("Impossible de supprimer l'article.");
+              });
+        }
     };
 
     if (loading) return <p>Chargement...</p>;
@@ -65,8 +79,14 @@ export function ArticlePage() {
                         <h1 className="realign">{secondPart}</h1>
                     </div>
                 </div>
+                <div className="editionBtns">
+                    <Link to={`/article/edit/${article.id_article}`}>
+                        <button>Modifier l'article</button>
+                    </Link>
+                    <button onClick={() => onDelete(article.id_article)}>Supprimer l'article</button>
+                </div>
                 <div className="image">
-                    <img src={article.image} alt={`Image de l'article : ${article.title}`}/>
+                    <img src={`http://localhost:3000/uploads/${article.image}`} alt={`Image de l'article : ${article.title}`}/>
                     <FaRegHeart className={`favorite ${isFavorite ? 'hidden' : ''}`} 
                         onClick={handleFavoriteClick} />
                     <FaHeart className={`addedFavorite ${isFavorite ? '' : 'hidden'}`} 

@@ -7,23 +7,23 @@ class ArticleManager extends AbstractManager {
 
     addArticle(article) {
         return this.database.query(
-            `insert into ${this.table} (id_article, title, content, image, affiliate_links, created_at, updated_at, id_users) values (?, ?, ?, ?, ?, NOW(), NOW(), ?)`,
-            [
-            article.id_article,
+          `INSERT INTO ${this.table} (title, content, image, affiliate_links, created_at, updated_at, id_users) 
+          VALUES (?, ?, ?, ?, NOW(), NOW(), ?)`,
+          [
             article.title,
             article.content,
             article.image,
             article.affiliate_links,
             article.id_users
-            ]
-        )
+          ]
+        );
     }
 
     updateArticle(article) {
         return this.database.query(
-          `update ${this.table} set id_article = ?, title = ?, content = ?, image = ?, updated_at = NOW() where id_article = ?`,
-          [article.id_article, article.title, article.content, article.image, article.id]
-        )
+          `UPDATE ${this.table} SET title = ?, content = ?, image = ?, id_users = ?, updated_at = NOW() WHERE id_article = ?`,
+          [article.title, article.content, article.image, article.id_users, article.id_article]
+        );
     }
 
     getAllArticles(title) {

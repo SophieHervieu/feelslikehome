@@ -4,11 +4,23 @@ const app = express()
 app.use(express.json())
 const fs = require('fs')
 
-const multer = require('multer')
+const multer = require('multer');
+const path = require("path");
 
 const { v4: uuidv4 } = require('uuid')
 
-const upload = multer({ dest: './public/uploads' })
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, './public/uploads');
+    },
+    filename: (req, file, cb) => {
+      const ext = path.extname(file.originalname);
+      const baseName = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, baseName + ext);
+    }
+});
+  
+const upload = multer({ storage });
 
 const router = express.Router()
 const models = require('./models')
@@ -20,8 +32,8 @@ const QuizzResultController = require('./controllers/QuizzResultController');
 
 router.get('/article', articleController.browse);
 router.get('/article/:id', articleController.read);
-router.post('/article', articleController.add);
-router.put('/article/:id', articleController.edit);
+router.post('/article', upload.single('image'), articleController.add);
+router.put('/article/:id', upload.single('image'), articleController.edit);
 router.delete('/article/:id', articleController.destroy);
 
 router.get("/quizz/questions", QuizzQuestionController.getAllQuestions);

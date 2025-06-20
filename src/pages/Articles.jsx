@@ -60,7 +60,6 @@ export function Articles() {
                 </div>
             </div>
             <div className="articlesList">
-            {console.log("Articles affichés :", articles)}
             {articles.length === 0 ? (
                 <p className="no-results">Aucun article ne correspond à votre recherche.</p>
             ) : (

@@ -36,6 +36,7 @@ function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/article/:id" element={<ArticlePage />} />
         <Route path="/nouvelarticle" element={<NewArticle />} />
+        <Route path="/article/edit/:id" element={<NewArticle />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/quizz" element={<Quizz />} />
