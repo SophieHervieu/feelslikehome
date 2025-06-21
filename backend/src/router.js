@@ -9,6 +9,8 @@ const path = require("path");
 
 const { v4: uuidv4 } = require('uuid')
 
+const { validateArticle } = require("./validators/articleValidator");
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, './public/uploads');
@@ -32,8 +34,8 @@ const QuizzResultController = require('./controllers/QuizzResultController');
 
 router.get('/article', articleController.browse);
 router.get('/article/:id', articleController.read);
-router.post('/article', upload.single('image'), articleController.add);
-router.put('/article/:id', upload.single('image'), articleController.edit);
+router.post('/article', upload.single('image'), validateArticle, articleController.add);
+router.put('/article/:id', upload.single('image'), validateArticle, articleController.edit);
 router.delete('/article/:id', articleController.destroy);
 
 router.get("/quizz/questions", QuizzQuestionController.getAllQuestions);

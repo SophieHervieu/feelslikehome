@@ -1,5 +1,4 @@
 const models = require("../models");
-const { articleSchema } = require("../validators/articleValidator");
 
 const browse = (req, res) => {
   const { title } = req.query;
@@ -35,11 +34,6 @@ const add = (req, res) => {
       image: req.file ? req.file.filename : null,
       affiliate_links: req.body.affiliate_links || null,
     }
-
-    const { error } = articleSchema.validate(article);
-    if (error) {
-      return res.status(400).json({ error: error.details[0].message });
-    }
   
     models.article
       .addArticle(article)
@@ -65,11 +59,6 @@ const edit = (req, res) => {
     content: req.body.content,
     id_users: parseInt(req.body.id_users, 10),
     image: req.file ? req.file.filename : req.body.existingImage || null,
-  }
-
-  const { error } = articleSchema.validate(article);
-  if (error) {
-    return res.status(400).json({ error: error.details[0].message });
   }
 
   models.article
