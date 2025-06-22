@@ -47,12 +47,10 @@ jobs:
 
     - name: Install frontend deps
       run: |
-        cd frontend
         npm ci
 
     - name: Start frontend
       run: |
-        cd frontend
         npm run dev &
       env:
         VITE_API_URL: http://localhost:3000/api
