@@ -17,6 +17,7 @@ export function QuizzQuestion({ question, selectedAnswerId, onAnswerSelect }) {
                     key={response.id}
                     src={response.image_url}
                     alt={`Choix ${response.id}`}
+                    data-testid="answer-image"
                     className={`answer-image ${selectedAnswerId === response.id ? 'selected' : ''}`}
                     onClick={() => handleClick(response)}
                     />

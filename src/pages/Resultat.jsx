@@ -12,29 +12,22 @@ export function Resultat() {
 
     useEffect(() => {
         if (!answers) {
-            // Pas de réponses => redirection vers /quizz
             navigate("/quizz");
             return;
         }
 
-        // Exemple d'API qui renvoie la liste des quizz_result (avec id et description)
         axios.get("http://localhost:3000/api/quizz/results")
         .then((res) => {
             const results = res.data; // tableau de { id_quizz_result, title, description, image_url }
 
-            // On compte combien de fois chaque id_quizz_result apparait dans les réponses
             const counts = {};
             for (const answerId of Object.values(answers)) {
-            // Trouver dans results le quizz_result lié à cette réponse (il faut que l'API donne cette info)
-            // Supposons qu'il y a une relation dans ton API pour savoir quel id_quizz_result correspond à answerId
-            // Ici, on simule avec une fonction find
-            const resultForAnswer = results.find(r => r.answer_ids.includes(answerId)); // adapter selon ta data réelle
+            const resultForAnswer = results.find(r => r.answer_ids.includes(answerId));
             if (resultForAnswer) {
                 counts[resultForAnswer.id_quizz_result] = (counts[resultForAnswer.id_quizz_result] || 0) + 1;
             }
             }
 
-            // Trouver l'id_quizz_result avec le max de votes
             let maxId = null;
             let maxCount = 0;
             for (const [key, val] of Object.entries(counts)) {
@@ -45,6 +38,7 @@ export function Resultat() {
             }
 
             const finalResult = results.find(r => r.id_quizz_result === parseInt(maxId));
+            console.log("Résultat final calculé :", finalResult);
             setResultat(finalResult || null);
             setLoading(false);
         })

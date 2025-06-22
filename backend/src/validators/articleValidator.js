@@ -6,7 +6,6 @@ const articleSchema = Joi.object({
   id_users: Joi.number().integer().required(),
   image: Joi.string().optional().allow(null),
   affiliate_links: Joi.string().uri().allow(null, '').optional(),
-  image: Joi.string().allow(null).optional(),
 });
 
 const validateArticle = (req, res, next) => {
