@@ -55,7 +55,7 @@ jobs:
       env:
         DB_HOST: mysql
         DB_USER: root
-        DB_PASSWORD: ""
+        DB_PASSWORD: '""'
         DB_NAME: feelslikehome
 
     - name: Start backend
