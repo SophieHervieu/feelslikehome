@@ -27,14 +27,16 @@ jobs:
 
     - name: Wait for MySQL to be ready
       run: |
-        until mysqladmin ping -h"127.0.0.1" --silent; do
+        until mysqladmin ping -h"mysql" --silent; do
         echo "Waiting for MySQL..."
         sleep 2
         done
 
     - name: Init DB with schema.sql
+      env:
+        MYSQL_PWD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
       run: |
-        mysql -h 127.0.0.1 -P 3306 -u root feelslikehome < backend/database.sql
+        mysql -h mysql -P 3306 -u root feelslikehome < backend/database.sql
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -58,7 +60,7 @@ jobs:
         DB_HOST: mysql
         DB_PORT: 3306
         DB_USER: root
-        DB_PASSWORD: root
+        DB_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
         DB_NAME: feelslikehome
         JWT_SECRET: YOUR_JWT_SECRET
 
