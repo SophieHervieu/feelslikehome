@@ -48,15 +48,19 @@ jobs:
 
     - name: Debug env variables for backend
       run: |
-       echo "DB_HOST=$DB_HOST"
-       echo "DB_USER=$DB_USER"
-       echo "DB_PASSWORD='${DB_PASSWORD:-EMPTY}'"
-       echo "DB_NAME=$DB_NAME"
+        echo "DB_HOST=$DB_HOST"
+        echo "DB_PORT=$DB_PORT"
+        echo "DB_USER=$DB_USER"
+        echo "DB_PASSWORD=${DB_PASSWORD:-EMPTY}"
+        echo "DB_NAME=$DB_NAME"
+        echo "JWT_SECRET=${JWT_SECRET:-EMPTY}"
       env:
         DB_HOST: mysql
+        DB_PORT: 3306
         DB_USER: root
-        DB_PASSWORD: '""'
+        DB_PASSWORD: ""
         DB_NAME: feelslikehome
+        JWT_SECRET: YOUR_JWT_SECRET
 
     - name: Start backend
       run: |
@@ -64,9 +68,11 @@ jobs:
         node index.js &
       env:
         DB_HOST: mysql
+        DB_PORT: 3306
         DB_USER: root
         DB_PASSWORD: ""
         DB_NAME: feelslikehome
+        JWT_SECRET: YOUR_JWT_SECRET
         FRONTEND_URL: http://localhost:5173
 
     - name: Install frontend deps
