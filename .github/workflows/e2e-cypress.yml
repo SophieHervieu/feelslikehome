@@ -34,7 +34,7 @@ jobs:
 
     - name: Init DB with schema.sql
       run: |
-        mysql -h 127.0.0.1 -P 3306 -u root feelslikehome < backend/schema.sql
+        mysql -h 127.0.0.1 -P 3306 -u root feelslikehome < backend/database.sql
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
