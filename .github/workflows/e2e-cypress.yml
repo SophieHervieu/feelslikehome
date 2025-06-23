@@ -14,6 +14,7 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "1"
           MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: feelslikehome
         ports:
@@ -23,6 +24,17 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
+
+    - name: Wait for MySQL to be ready
+      run: |
+        until mysqladmin ping -h"127.0.0.1" --silent; do
+        echo "Waiting for MySQL..."
+        sleep 2
+        done
+
+    - name: Init DB with schema.sql
+      run: |
+        mysql -h 127.0.0.1 -P 3306 -u root feelslikehome < backend/schema.sql
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
