@@ -86,8 +86,5 @@ jobs:
       env:
         VITE_API_URL: http://localhost:3000/api
 
-    - name: Wait for apps to be ready
-      run: npx wait-on http://localhost:5173 http://localhost:3000/api/article
-
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
