@@ -25,18 +25,18 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-    - name: Wait for MySQL to be ready
-      run: |
-        until mysqladmin ping -h"mysql" --silent; do
-        echo "Waiting for MySQL..."
-        sleep 2
-        done
+    # - name: Wait for MySQL to be ready
+    #   run: |
+    #     until mysqladmin ping -h"mysql" --silent; do
+    #     echo "Waiting for MySQL..."
+    #     sleep 2
+    #     done
 
     - name: Init DB with schema.sql
       env:
         MYSQL_PWD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
       run: |
-        mysql -h mysql -P 3306 -u root feelslikehome < backend/database.sql
+        mysql -h mysql -P 3306 -u root backend/database.sql
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
