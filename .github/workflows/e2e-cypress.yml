@@ -75,6 +75,7 @@ jobs:
         echo "DB_NAME=feelslikehome" >> .env
         echo "JWT_SECRET=YOUR_JWT_SECRET" >> .env
         cat .env
+        pwd
         node index.js &
       env:
         DB_HOST: mysql
