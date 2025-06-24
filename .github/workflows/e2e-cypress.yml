@@ -61,6 +61,14 @@ jobs:
     - name: Start backend
       run: |
         cd backend
+        echo "APP_PORT=3000
+        FRONTEND_URL=http://localhost:5173
+        DB_HOST=localhost
+        DB_PORT=3306
+        DB_USER=root
+        DB_PASSWORD=
+        DB_NAME=feelslikehome
+        JWT_SECRET=YOUR_JWT_SECRET" > .env
         node index.js &
       env:
         DB_HOST: mysql
