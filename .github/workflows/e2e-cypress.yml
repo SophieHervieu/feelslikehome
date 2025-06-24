@@ -15,7 +15,7 @@ jobs:
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: "0"
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: # ${{ secrets.MYSQL_ROOT_PASSWORD }}
           MYSQL_DATABASE: feelslikehome
         ports:
           - 3306:3306
@@ -34,7 +34,7 @@ jobs:
 
     - name: Init DB with schema.sql
       env:
-        MYSQL_PWD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        MYSQL_PWD: # ${{ secrets.MYSQL_ROOT_PASSWORD }}
       run: |
         mysql -u root
         backend/database.sql
@@ -73,7 +73,7 @@ jobs:
         DB_HOST: mysql
         DB_PORT: 3306
         DB_USER: root
-        DB_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        DB_PASSWORD: # ${{ secrets.MYSQL_ROOT_PASSWORD }}
         DB_NAME: feelslikehome
         JWT_SECRET: YOUR_JWT_SECRET
         FRONTEND_URL: http://localhost:5173
