@@ -27,7 +27,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Wait for MySQL to be ready
       run: |
@@ -68,7 +68,7 @@ jobs:
         touch .env
         echo "APP_PORT=3000" >> .env
         echo "FRONTEND_URL=http://localhost:5173" >> .env
-        echo "DB_HOST=localhost" >> .env
+        echo "DB_HOST=127.0.0.1" >> .env
         echo "DB_PORT=3306" >> .env
         echo "DB_USER=root" >> .env
         echo "DB_PASSWORD=" >> .env
@@ -78,7 +78,7 @@ jobs:
         pwd
         node index.js &
       env:
-        DB_HOST: mysql
+        DB_HOST: 127.0.0.1
         DB_USER: root
         DB_PASSWORD: ""
         DB_NAME: feelslikehome
