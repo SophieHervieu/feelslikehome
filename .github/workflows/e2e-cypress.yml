@@ -74,15 +74,7 @@ jobs:
         echo "DB_PASSWORD=" >> .env
         echo "DB_NAME=feelslikehome" >> .env
         echo "JWT_SECRET=YOUR_JWT_SECRET" >> .env
-        cat .env
-        ls -al
         node index.js &
-      env:
-        DB_HOST: 127.0.0.1
-        DB_USER: root
-        DB_PASSWORD: ""
-        DB_NAME: feelslikehome
-        FRONTEND_URL: http://localhost:5173
 
     - name: Install frontend deps
       run: |
@@ -99,7 +91,3 @@ jobs:
 
     - name: Run Cypress tests
       uses: cypress-io/github-action@v6
-      with:
-        start: npm run dev
-        wait-on: 'http://localhost:5173'
-        browser: chrome
