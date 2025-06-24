@@ -203,28 +203,28 @@ ADD CONSTRAINT fk_quizz_results_read
 FOREIGN KEY (id_quizz_result)
 REFERENCES quizz_result(id_quizz_result);
 
-INSERT INTO `quizz_question` (`id_quizz_question`, `question_text`) VALUES
-(1, 'Laquelle de ces photos vous inspire le plus ?'),
-(2, 'Quelle décoration de salon vous correspond le mieux ?'),
-(3, 'Quelle décoration de cuisine vous correspond le mieux ?');
+-- INSERT INTO `quizz_question` (`id_quizz_question`, `question_text`) VALUES
+-- (1, 'Laquelle de ces photos vous inspire le plus ?'),
+-- (2, 'Quelle décoration de salon vous correspond le mieux ?'),
+-- (3, 'Quelle décoration de cuisine vous correspond le mieux ?');
 
---
--- Déchargement des données de la table `quizz_result`
---
+-- --
+-- -- Déchargement des données de la table `quizz_result`
+-- --
 
-INSERT INTO `quizz_result` (`id_quizz_result`, `result_title`, `result_text`) VALUES
-(1, 'Scandinave', 'blablabla'),
-(2, 'Industriel', 'kdokezfdkezpf'),
-(3, 'Boho Chic', 'frezoiofi'),
-(4, 'Transitionnel', 'fvgokhtr'),
-(5, 'Japandi', 'thrhyhy'),
-(6, 'Midcentury Modern', 'edzfezr');
+-- INSERT INTO `quizz_result` (`id_quizz_result`, `result_title`, `result_text`) VALUES
+-- (1, 'Scandinave', 'blablabla'),
+-- (2, 'Industriel', 'kdokezfdkezpf'),
+-- (3, 'Boho Chic', 'frezoiofi'),
+-- (4, 'Transitionnel', 'fvgokhtr'),
+-- (5, 'Japandi', 'thrhyhy'),
+-- (6, 'Midcentury Modern', 'edzfezr');
 
-INSERT INTO `quizz_answer_choice` (`id_quizz_answer_choice`, `image_url`, `id_quizz_question`, `id_quizz_result`) VALUES
-(13, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 1),
-(14, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 2),
-(15, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 3),
-(16, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 4),
-(17, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 5),
-(18, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 6);
+-- INSERT INTO `quizz_answer_choice` (`id_quizz_answer_choice`, `image_url`, `id_quizz_question`, `id_quizz_result`) VALUES
+-- (13, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 1),
+-- (14, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 2),
+-- (15, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 3),
+-- (16, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 4),
+-- (17, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 5),
+-- (18, 'https://www.mydomaine.com/thmb/t6ypIZC0b2B952hHICOUNfiRHaw=/2000x0/filters:no_upscale():strip_icc()/transitional-design-ideas-3-bespoke-only-wilton-a95faa62a93c454583162a94d1f92118.jpeg', 1, 6);
 
