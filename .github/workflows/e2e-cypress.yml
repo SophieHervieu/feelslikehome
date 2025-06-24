@@ -36,7 +36,8 @@ jobs:
       env:
         MYSQL_PWD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
       run: |
-        mysql -h mysql -P 3306 -u root backend/database.sql
+        mysql -u root
+        backend/database.sql
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
