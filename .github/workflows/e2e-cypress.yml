@@ -12,14 +12,18 @@ jobs:
 
     services:
       mysql:
-        image: mysql:5.7
+        image: mysql:8.0
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: "1"
           MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: feelslikehome
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: >-
+          --health-cmd="mysqladmin ping --silent" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
 
     steps:
     - name: Checkout repo
@@ -61,14 +65,15 @@ jobs:
     - name: Start backend
       run: |
         cd backend
-        echo "APP_PORT=3000
-        FRONTEND_URL=http://localhost:5173
-        DB_HOST=localhost
-        DB_PORT=3306
-        DB_USER=root
-        DB_PASSWORD=
-        DB_NAME=feelslikehome
-        JWT_SECRET=YOUR_JWT_SECRET" > .env
+        touch .env
+        echo "APP_PORT=3000" >> .env
+        echo "FRONTEND_URL=http://localhost:5173" >> .env
+        echo "DB_HOST=localhost" >> .env
+        echo "DB_PORT=3306" >> .env
+        echo "DB_USER=root" >> .env
+        echo "DB_PASSWORD=" >> .env
+        echo "DB_NAME=feelslikehome" >> .env
+        echo "JWT_SECRET=YOUR_JWT_SECRET" >> .env
         cat .env
         node index.js &
       env:
