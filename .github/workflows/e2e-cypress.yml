@@ -12,10 +12,10 @@ jobs:
 
     services:
       mysql:
-        image: mysql:8.0
+        image: mysql:5.7
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: "0"
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_ALLOW_EMPTY_PASSWORD: "1"
+          MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: feelslikehome
         ports:
           - 3306:3306
@@ -25,19 +25,16 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-    # - name: Wait for MySQL to be ready
-    #   run: |
-    #     until mysqladmin ping -h"mysql" --silent; do
-    #     echo "Waiting for MySQL..."
-    #     sleep 2
-    #     done
+    - name: Wait for MySQL to be ready
+      run: |
+        until mysqladmin ping -h"127.0.0.1" --silent; do
+        echo "Waiting for MySQL..."
+        sleep 2
+        done
 
     - name: Init DB with schema.sql
-      env:
-        MYSQL_PWD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
       run: |
-        mysql -u root
-        backend/database.sql
+        mysql -h 127.0.0.1 -P 3306 -u root feelslikehome < backend/database.sql
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -51,19 +48,15 @@ jobs:
 
     - name: Debug env variables for backend
       run: |
-        echo "DB_HOST=$DB_HOST"
-        echo "DB_PORT=$DB_PORT"
-        echo "DB_USER=$DB_USER"
-        echo "DB_PASSWORD=${DB_PASSWORD:-EMPTY}"
-        echo "DB_NAME=$DB_NAME"
-        echo "JWT_SECRET=${JWT_SECRET:-EMPTY}"
+       echo "DB_HOST=$DB_HOST"
+       echo "DB_USER=$DB_USER"
+       echo "DB_PASSWORD='${DB_PASSWORD:-EMPTY}'"
+       echo "DB_NAME=$DB_NAME"
       env:
         DB_HOST: mysql
-        DB_PORT: 3306
         DB_USER: root
-        DB_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        DB_PASSWORD: ""
         DB_NAME: feelslikehome
-        JWT_SECRET: YOUR_JWT_SECRET
 
     - name: Start backend
       run: |
@@ -71,11 +64,9 @@ jobs:
         node index.js &
       env:
         DB_HOST: mysql
-        DB_PORT: 3306
         DB_USER: root
-        DB_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        DB_PASSWORD: ""
         DB_NAME: feelslikehome
-        JWT_SECRET: YOUR_JWT_SECRET
         FRONTEND_URL: http://localhost:5173
 
     - name: Install frontend deps
