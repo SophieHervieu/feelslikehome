@@ -69,6 +69,7 @@ jobs:
         DB_PASSWORD=
         DB_NAME=feelslikehome
         JWT_SECRET=YOUR_JWT_SECRET" > .env
+        echo .env
         node index.js &
       env:
         DB_HOST: mysql
