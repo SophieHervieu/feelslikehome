@@ -2,7 +2,14 @@ const AbstractManager = require('./AbstractManager')
 
 class QuizzResultManager extends AbstractManager {
     constructor() {
-        super({ table: 'quizz_result' })
+        super({ table: 'quizz_result' });
+
+        this.fields = `
+          id_quizz_result,
+          result_title,
+          result_text,
+          image_url
+        `;
     }
 
     getAllResultsWithAnswers() {
@@ -16,12 +23,12 @@ class QuizzResultManager extends AbstractManager {
     }
 
     getAllResults() {
-        return this.database.query("SELECT * FROM quizz_result");
+        return this.database.query("SELECT ${this.fields} FROM quizz_result");
     }
 
     getResultById(id) {
         return this.database.query(
-          "SELECT * FROM quizz_result WHERE id_quizz_result = ?",
+          "SELECT ${this.fields} FROM quizz_result WHERE id_quizz_result = ?",
           [id]
         );
     }
